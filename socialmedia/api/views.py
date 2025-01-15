@@ -1,4 +1,4 @@
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, serializers
 from .models import Post, Comment, Follower
 from .serializers import PostSerializer, CommentSerializer, FollowerSerializer
 

@@ -5,7 +5,7 @@ from .views import (
     CommentListCreateView, FollowView, FeedView
 )
 
-urlpatterns += [
+urlpatterns = [
     path('posts/', PostListCreateView.as_view(), name='post-list-create'),
     path('posts/<int:pk>/', PostRetrieveUpdateDeleteView.as_view(), name='post-detail'),
     path('comments/', CommentListCreateView.as_view(), name='comment-list-create'),
