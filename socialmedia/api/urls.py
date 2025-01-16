@@ -1,8 +1,10 @@
 from django.urls import path
+from .views import CustomAuthToken
+from .views import CustomTokenObtainPairView
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from .views import (
     PostListCreateView, PostRetrieveUpdateDeleteView, 
-    CommentListCreateView, FollowView, FeedView
+    CommentListCreateView, FollowView, FeedView, RegisterUserView
 )
 
 urlpatterns = [
@@ -11,8 +13,12 @@ urlpatterns = [
     path('comments/', CommentListCreateView.as_view(), name='comment-list-create'),
     path('follow/', FollowView.as_view(), name='follow'),
     path('feed/', FeedView.as_view(), name='feed'),
+    path('users/login/', CustomAuthToken.as_view(), name='user-login'),
+    path('users/register/', RegisterUserView.as_view(), name='user-register'),
     path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
 
 
