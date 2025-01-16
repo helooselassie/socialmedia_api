@@ -13,10 +13,21 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.generics import CreateAPIView
 from django.contrib.auth import authenticate
+from django.views.decorators.csrf import csrf_exempt
 
 
 
 
+
+@csrf_exempt
+def my_view(request):
+    ...
+
+class PublicEndpoint(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self, request):
+        return Response({"message": "Accessible by anyone"})
 class LoginView(APIView):
     def post(self, request):
         username = request.data.get('username')

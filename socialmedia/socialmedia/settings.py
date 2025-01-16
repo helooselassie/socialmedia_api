@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_framework_simplejwt',
     'api',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -140,10 +141,10 @@ STATIC_URL = '/static/'
 STATIC_ROOT = '/home/helooselassie/static'
 
 
-#import os
+import os
 
 #STATIC_URL = 'static/'
-#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 
