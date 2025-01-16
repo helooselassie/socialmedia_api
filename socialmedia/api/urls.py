@@ -14,6 +14,7 @@ urlpatterns = [
     path('follow/', FollowView.as_view(), name='follow'),
     path('feed/', FeedView.as_view(), name='feed'),
     path('api/users/login/', LoginView.as_view(), name='user_login'),
+    path('users/login/', LoginView.as_view(), name='login'),
     path('users/login/', CustomAuthToken.as_view(), name='user-login'),
     path('users/register/', RegisterUserView.as_view(), name='user-register'),
     path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
