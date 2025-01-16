@@ -25,12 +25,17 @@ SECRET_KEY = 'django-insecure-ohhb^x=z!!$p4)dn=n8e=hv#rb07))el!!#bpuvmk76@20agk&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-import os
+#ALLOWED_HOSTS = ['helooselassie.pythonanywhere.com']
 
-if os.environ.get('DJANGO_ENV') == 'production':
-    ALLOWED_HOSTS = ['helooselassie.pythonanywhere.com']
-else:
-    ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'helooselassie.pythonanywhere.com']
+
+
+#import os
+
+#if os.environ.get('DJANGO_ENV') == 'production':
+   # ALLOWED_HOSTS = ['helooselassie.pythonanywhere.com']
+#else:
+#    ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -128,11 +133,18 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
-import os
 
-STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+
+STATIC_URL = '/static/'
+STATIC_ROOT = '/home/helooselassie/static'
+
+
+#import os
+
+#STATIC_URL = 'static/'
+#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 
 # Default primary key field type
@@ -141,6 +153,9 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
+    'AUTHENTICATION_BACKENDS': [
+        'django.contrib.auth.backends.ModelBackend',
+    ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
         'rest_framework.authentication.TokenAuthentication',

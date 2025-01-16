@@ -19,15 +19,19 @@ from django.contrib.auth import authenticate
 
 class LoginView(APIView):
     def post(self, request):
-        print(request.data)  # Log the request data for debugging
-        username = request.data.get("username")
-        password = request.data.get("password")
+        username = request.data.get('username')
+        password = request.data.get('password')
+
+        # Debugging output
+        print(f"Received username: {username}, password: {password}")
+
+        # Authenticate user
         user = authenticate(username=username, password=password)
         if user:
-            return Response({"message": "Login successful"})
-        return Response({"error": "Invalid credentials"}, status=401)
+            return Response({"message": "Login successful"}, status=status.HTTP_200_OK)
+        return Response({"error": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
     
-    
+
 class CustomTokenObtainPairView(TokenObtainPairView):
     pass
 class CustomAuthToken(ObtainAuthToken):
