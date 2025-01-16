@@ -25,7 +25,12 @@ SECRET_KEY = 'django-insecure-ohhb^x=z!!$p4)dn=n8e=hv#rb07))el!!#bpuvmk76@20agk&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+import os
+
+if os.environ.get('DJANGO_ENV') == 'production':
+    ALLOWED_HOSTS = ['helooselassie.pythonanywhere.com']
+else:
+    ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -41,12 +46,6 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_framework_simplejwt',
     'api',
-    #"psycopg2-binary", 
-    #"psycopg2", 
-    #"Pillow", 
-    #"django-taggit", 
-    #"django-sslserver", 
-    #"django-filter",
 ]
 
 MIDDLEWARE = [
@@ -83,15 +82,17 @@ WSGI_APPLICATION = 'socialmedia.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'alx',
+        'USER': 'postgres', 
+        'PASSWORD': 'sela123',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
-
-
-
 
 
 # Password validation
@@ -140,15 +141,16 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
-    #'DEFAULT_AUTHENTICATION_CLASSES': [
-     #   'rest_framework_simplejwt.authentication.JWTAuthentication',
-    #],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ],
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
-    ],
+    
 }
 
 from datetime import timedelta
