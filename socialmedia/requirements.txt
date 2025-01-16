@@ -5,9 +5,9 @@ djangorestframework_simplejwt
 PyJWT
 sqlparse
 tzdata
-django-taggit
-psycopg2
-django-filter
-psycopg2-binary
-django-sslserver
-Pillow
+$django-taggit
+#psycopg2
+#django-filter
+#psycopg2-binary
+#django-sslserver
+#Pillow
