@@ -7,7 +7,7 @@ sqlparse
 tzdata
 $django-taggit
 #psycopg2
-#django-filter
+django-filter
 #psycopg2-binary
 #django-sslserver
 #Pillow
