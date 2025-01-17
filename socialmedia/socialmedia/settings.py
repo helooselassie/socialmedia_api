@@ -27,7 +27,7 @@ DEBUG = True
 
 #ALLOWED_HOSTS = ['helooselassie.pythonanywhere.com']
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'selassieheloos.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'selassieheloo.pythonanywhere.com']
 
 
 #import os
