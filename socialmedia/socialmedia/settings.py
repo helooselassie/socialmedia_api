@@ -27,7 +27,7 @@ DEBUG = True
 
 #ALLOWED_HOSTS = ['helooselassie.pythonanywhere.com']
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'helooselassie.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'selassieheloos.pythonanywhere.com']
 
 
 #import os
@@ -138,7 +138,7 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/home/helooselassie/static'
+STATIC_ROOT = '/home/selassieheloo/static'
 
 
 import os
